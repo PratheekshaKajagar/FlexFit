@@ -83,7 +83,3 @@ The program follows the **Bro Split** rotation:
 - **Weight** — use the max weight you can complete with good form
 
 ---
-
-## Built By
-
-[Pratheeksha Kajagar]
