@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pink: #f05a7e;
+  --blue: #3b82f6;
+  --dark: #07070f;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--dark);
+  color: #e8e8f0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+
+a { color: var(--pink); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.75; }
+
+/* ── Navbar ── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 4rem;
+  background: rgba(7,7,15,0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.navbar-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem; letter-spacing: 0.06em; text-decoration: none;
+}
+.navbar-links { display: flex; align-items: center; gap: 2.2rem; }
+.navbar-links a {
+  color: rgba(232,232,240,0.65); font-size: 0.875rem;
+  font-weight: 500; letter-spacing: 0.03em; transition: color 0.2s;
+}
+.navbar-links a:hover { color: #fff; opacity: 1; }
+.navbar-cta {
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+  color: #fff; border: none; border-radius: 999px;
+  padding: 0.5rem 1.5rem; font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem; font-weight: 600; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(240,90,126,0.35);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.navbar-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ── Hero ── */
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.hero-left-panel {
+  position: relative;
+  flex: 0 0 100%;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 8rem 4rem 5rem 4rem;
+  background: linear-gradient(135deg, #1a0510 0%, #0a0818 55%, var(--dark) 100%);
+  z-index: 2;
+  min-height: 100vh;
+}
+.hero-left-panel::before {
+  content: '';
+  position: absolute; top: -10%; left: -20%;
+  width: 140%; height: 80%;
+  border-radius: 0 0 60% 60%;
+  border: 1px solid rgba(240,90,126,0.15);
+  pointer-events: none;
+}
+
+.hero-trust {
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(232,232,240,0.5); margin-bottom: 1.2rem;
+}
+.hero-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 8.5vw, 9.5rem);
+  line-height: 0.92; letter-spacing: 0.015em; color: #fff;
+  display: flex; flex-direction: column;
+  margin-bottom: 2.5rem;
+}
+.hero-desc-box {
+  max-width: 360px;
+  display: flex; flex-direction: column; gap: 1.4rem;
+}
+.hero-description {
+  font-size: 0.95rem; color: rgba(232,232,240,0.75); line-height: 1.75;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 0.65rem;
+  background: linear-gradient(135deg, var(--pink), #c83060);
+  color: #fff; padding: 0.9rem 2rem; border-radius: 999px;
+  font-weight: 600; font-size: 0.9rem;
+  box-shadow: 0 6px 30px rgba(240,90,126,0.45);
+  transition: transform 0.2s, box-shadow 0.2s; width: fit-content;
+}
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(240,90,126,0.55); opacity: 1;
+}
+.hero-cta i { font-size: 0.8rem; }
+
+/* ── Program Info ── */
+.program-info {
+  flex: 0 0 100%;
+  background: var(--dark);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem 5rem;
+  padding: 5rem 4rem 3rem;
+  max-width: 1200px; margin: 0 auto; width: 100%;
+}
+.program-block { display: flex; flex-direction: column; gap: 0.85rem; }
+.program-block--full { grid-column: 1 / -1; }
+
+.section-label {
+  font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--pink); font-weight: 600;
+}
+.benefits-list {
+  padding-left: 1.2rem; display: flex; flex-direction: column;
+  gap: 0.45rem; color: rgba(232,232,240,0.78);
+}
+.benefits-list li { font-size: 0.95rem; }
+.rules-list { display: flex; flex-direction: column; list-style: none; }
+.rule-item {
+  display: flex; gap: 1.2rem; padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.rule-item:last-child { border-bottom: none; }
+.rule-item p:first-of-type { min-width: 68px; color: var(--pink); font-weight: 600; font-size: 0.875rem; }
+.rule-item p:last-of-type { color: rgba(232,232,240,0.72); font-size: 0.9rem; }
+.split-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(240,90,126,0.1); border: 1px solid rgba(240,90,126,0.25);
+  border-radius: 0.5rem; padding: 0.5rem 1rem;
+  font-size: 0.9rem; font-weight: 600; color: var(--pink); width: fit-content;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; color: #fff; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.7rem; }
+h4 { font-size: 1.3rem; }
+h5 { font-size: 1rem; font-family: 'DM Sans', sans-serif; font-weight: 600; color: #fff; }
+h6 {
+  font-size: 0.75rem; font-family: 'DM Sans', sans-serif; font-weight: 600;
+  color: rgba(232,232,240,0.45); letter-spacing: 0.08em; text-transform: uppercase;
+}
+p { color: rgba(232,232,240,0.78); }
+small { color: rgba(232,232,240,0.45); font-size: 0.8rem; }
+abbr { text-decoration: underline dotted; cursor: help; }
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--pink) 0%, var(--blue) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+/* ── Main ── */
+main {
+  display: flex; flex-direction: column; gap: 0.5rem;
+  flex: 1; padding: 2rem 4rem;
+  max-width: 1200px; margin: 0 auto; width: 100%;
+}
+.workouts-header {
+  padding: 1rem 0 1.25rem;
+  display: flex; align-items: baseline; gap: 1.5rem;
+}
+.workouts-header span { font-size: 0.8rem; color: rgba(232,232,240,0.4); font-weight: 500; }
+
+/* ── Training Grid ── */
+.training-plan-grid {
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.85rem; padding-bottom: 3rem;
+}
+
+/* ── Cards ── */
+.card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0.9rem; padding: 1rem; color: #e8e8f0;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.card:hover:not(.inactive) {
+  background: rgba(255,255,255,0.07); transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(240,90,126,0.18);
+  border-color: rgba(240,90,126,0.25);
+}
+.plan-card { position: relative; cursor: pointer; width: 100%; text-align: left; font-family: 'DM Sans', sans-serif; }
+.inactive { cursor: not-allowed; opacity: 0.38; }
+.plan-card-header { display: flex; gap: 0.5rem; align-items: center; justify-content: space-between; }
+.plan-card-header p:first-of-type,
+.plan-card-header i { font-weight: 600; font-size: 0.72rem; color: var(--pink); }
+
+/* ── Workout expanded ── */
+.workout-container { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 1rem; }
+.workout-card { border-left: 3px solid var(--pink); }
+.workout-grid {
+  display: grid; grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.5rem; overflow-x: auto;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 0.75rem; padding: 1rem;
+}
+.exercise-name { grid-column: span 3 / span 3; display: flex; align-items: center; gap: 0.5rem; }
+.exercise-name p { font-weight: 400; font-size: 0.9rem; }
+.weight-input { grid-column: span 2 / span 2; }
+.workout-buttons { display: flex; align-items: center; gap: 1rem; }
+
+/* ── Inputs ── */
+input {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 0.5rem; color: #e8e8f0; padding: 0.4rem 0.6rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.875rem;
+  width: 100%; outline: none; transition: border-color 0.2s;
+}
+input:focus { border-color: var(--pink); }
+input:disabled { cursor: not-allowed; opacity: 0.3; }
+input::placeholder { color: rgba(232,232,240,0.3); }
+
+/* ── Buttons ── */
+button {
+  background: linear-gradient(135deg, var(--pink), #c03060);
+  color: #fff; border: none; border-radius: 0.6rem;
+  padding: 0.6rem 1.4rem; font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem; font-weight: 600; cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+button:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+button:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+button.help-icon {
+  pointer-events: none; opacity: 0; padding: 0 0.5rem;
+  color: var(--pink); background: transparent; box-shadow: none; transform: none;
+}
+button.help-icon:hover { transform: none; opacity: 0.7; background: transparent; }
+.exercise-name:hover button.help-icon { pointer-events: all; opacity: 1; }
+
+/* ── Modal ── */
+.modal-container {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  display: flex; align-items: center; justify-content: center; z-index: 200; padding: 1rem;
+}
+.modal-underlay {
+  position: absolute; inset: 0; background: rgba(7,7,15,0.85);
+  z-index: 99; border: none; cursor: pointer; backdrop-filter: blur(4px); transform: none;
+}
+.modal-underlay:hover { transform: none; opacity: 1; }
+.modal-content {
+  position: relative; z-index: 101; width: 100%; max-width: 600px; max-height: 400px;
+  border-radius: 1rem; border: 1px solid rgba(240,90,126,0.3);
+  background: #0f0f1e; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;
+  box-shadow: 0 24px 60px rgba(240,90,126,0.2);
+}
+
+/* ── Footer ── */
+footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 2rem;
+}
+.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.06em; }
+footer p { font-size: 0.82rem; color: rgba(232,232,240,0.35); }
+footer a { color: rgba(232,232,240,0.5); font-size: 0.82rem; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .program-info { padding: 4rem 2.5rem 2.5rem; gap: 2rem 3rem; }
+  main { padding: 2rem 2.5rem; }
+  footer { padding: 2rem 2.5rem; }
+}
+
+@media (max-width: 768px) {
+  .navbar { padding: 1rem 1.5rem; }
+  .navbar-links a { display: none; }
+  .hero-left-panel { padding: 7rem 1.5rem 3rem; }
+  .program-info { grid-template-columns: 1fr; padding: 3rem 1.5rem 2rem; gap: 2rem; }
+  .program-block--full { grid-column: 1; }
+  main { padding: 2rem 1.5rem; }
+  footer { flex-direction: column; gap: 0.75rem; padding: 2rem 1.5rem; text-align: center; }
+  .training-plan-grid { grid-template-columns: repeat(2, 1fr); }
+}
